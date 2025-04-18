@@ -43,6 +43,7 @@ function addViewedWord(word) {
         viewedWords.push(word); // pushes new word into local storage if it has not (!) already been saved before
 
         localStorage.setItem('viewedWords', JSON.stringify(viewedWords)); // updates the local storage
+        
     }
 }
 
@@ -56,7 +57,7 @@ wordLink.forEach(a => {
 
         //  To check if the clicked word has already been saved in local storage
         if (viewedWords.includes(word)){
-            console.log('You have saved this word already');
+            alert('You have saved this word already');
             a.classList.add('');
         }
 
@@ -106,11 +107,13 @@ if (completedWords === 0){
 }
 
 //clear LocalStorage
-clearStorage.addEventListener('click', () => {
+clearStorage.addEventListener('click', function(e) {
+    e.preventDefault();
+
     localStorage.clear();
     // console.log(count);
 
-    console.log('cleared')
+    alert('cleared')
 });
 
 
